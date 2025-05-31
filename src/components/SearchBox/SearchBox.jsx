@@ -5,7 +5,7 @@ import styles from "./SearchBox.module.css";
 
 const SearchBox = () => {
   const dispatch = useDispatch();
-  const value = useSelector((state) => state.filters.name);
+  const filter = useSelector((state) => state.filters.name);
 
   return (
     <div className={styles.search}>
@@ -13,7 +13,7 @@ const SearchBox = () => {
       <input
         type="text"
         className={styles.input}
-        value={value}
+        value={filter}
         onChange={(e) => dispatch(changeFilter(e.target.value))}
       />
     </div>

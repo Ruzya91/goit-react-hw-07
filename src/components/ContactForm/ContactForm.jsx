@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
@@ -6,8 +5,8 @@ import { addContact } from "../../redux/contactsSlice";
 import styles from "./ContactForm.module.css";
 
 const validationSchema = Yup.object({
-  name: Yup.string().min(3).max(50).required(),
-  number: Yup.string().min(3).max(50).required(),
+  name: Yup.string().required("Name is required"),
+  number: Yup.string().required("Number is required"),
 });
 
 const ContactForm = () => {
@@ -18,7 +17,7 @@ const ContactForm = () => {
       initialValues={{ name: "", number: "" }}
       validationSchema={validationSchema}
       onSubmit={(values, { resetForm }) => {
-        dispatch(addContact(values.name, values.number));
+        dispatch(addContact({ name: values.name, number: values.number }));
         resetForm();
       }}
     >
