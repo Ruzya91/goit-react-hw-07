@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import "../components/App.css";
 import { useDispatch } from "react-redux";
-import { fetchContacts } from "../redux/contactsSlice";
+import { fetchContacts } from "../redux/contactsOps";
 import ContactList from "../components/ContactList/ContactList";
 import SearchBox from "../components/SearchBox/SearchBox";
 import ContactForm from "../components/ContactForm/ContactForm";
